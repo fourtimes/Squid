@@ -55,6 +55,32 @@ tail -f /var/log/squid/access.log
 
 ![Alt text](image-3.png)
 
+
+**_Enable system level proxy configuration_**
+
+```sh
+# sudo vim /etc/environment
+export http_proxy="http://18.141.12.195:3128"
+export https_proxy="http://18.141.12.195:3128/"
+```
+
+**_Enable global docker level proxy_**
+```sh
+# sudo mkdir -p /etc/systemd/system/docker.service.d
+# sudo vi /etc/systemd/system/docker.service.d/proxy.conf
+
+[Service]
+Environment="HTTP_PROXY=http://18.141.12.195:3128"
+Environment="HTTPS_PROXY=https://18.141.12.195:3128/"
+Environment="NO_PROXY="localhost,127.0.0.1,::1"
+```
+```sh
+# after adding the above content, we use run the below image
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+
+```
+
 **Note:-**
 ```sh
 # build a docker image in my local and push a docker image to docker hub
@@ -67,3 +93,4 @@ docker push joeashli/ez-it-squid
 docker build -t joeashli/ez-gut-squid .
 docker push joeashli/ez-gut-squid
 ```
+
