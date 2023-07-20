@@ -54,6 +54,8 @@ tail -f /var/log/squid/access.log
 ![Alt text](image-2.png)
 
 ![Alt text](image-3.png)
+
+**Note:-**
 ```sh
 # build a docker image in my local and push a docker image to docker hub
 docker build -t joeashli/iz-it-squid .
