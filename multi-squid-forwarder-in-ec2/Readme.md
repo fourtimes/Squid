@@ -71,7 +71,7 @@ tail -f /var/log/squid/access.log
 
 ```sh
 # sudo vim /etc/environment
-export http_proxy="http://18.141.12.195:3128"
+export http_proxy="http://18.141.12.195:3128/"
 export https_proxy="http://18.141.12.195:3128/" 
 ```
 
@@ -81,17 +81,23 @@ export https_proxy="http://18.141.12.195:3128/"
 # sudo vi /etc/systemd/system/docker.service.d/proxy.conf
 
 [Service]
-Environment="HTTP_PROXY=http://18.141.12.195:3128"
-Environment="HTTPS_PROXY=https://18.141.12.195:3128/"
+Environment="HTTP_PROXY=http://18.141.12.195:3128/"
+Environment="HTTPS_PROXY=http://18.141.12.195:3128/"
 Environment="NO_PROXY="localhost,127.0.0.1,::1"
 ```
 ```sh
-# after adding the above content, we use run the below image
+# after adding the above content, we use run the below command
 sudo systemctl daemon-reload
 sudo systemctl restart docker.service
-
+sudo systemctl show docker --property Environment
+sudo docker info
 ```
-
+_docker debug_
+```sh
+docker pull ubuntu
+docker login
+```
+---
 **Note:-**
 ```sh
 # build a docker image in my local and push a docker image to docker hub
