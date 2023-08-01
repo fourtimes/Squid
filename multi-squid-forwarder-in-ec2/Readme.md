@@ -50,7 +50,8 @@ OUTPUT
 
 1. Go to the browser and past the public a ec2 instance `public ip address` 
 
-Firefox => network settings => manual proxy configuration
+`Firefox => network settings => manual proxy configuration`
+
 ![Alt text](image.png)
 
 2. open a new tab and check the network using the `any url` like...(youbtube.com)
