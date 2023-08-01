@@ -86,16 +86,20 @@ Environment="HTTP_PROXY=http://18.141.12.195:3128/"
 Environment="HTTPS_PROXY=http://18.141.12.195:3128/"
 Environment="NO_PROXY="localhost,127.0.0.1,::1"
 ```
+verify the docker proxy configuration
 ```sh
-# after adding the above content, we use run the below command
-sudo systemctl daemon-reload
-sudo systemctl restart docker.service
 sudo systemctl show docker --property Environment
 sudo docker info
 ```
+After adding the above content, we have to run the below command
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+```
 _docker debug_
 ```sh
-docker pull ubuntu
+docker pull mysql
+docker pull httpd
 docker login
 ```
 ---
