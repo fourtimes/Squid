@@ -56,7 +56,7 @@ OUTPUT
 
 2. open a new tab and check the network using the `any url` like...(youbtube.com)
 
-3. Login to the 3 containers and execute the below command for _debug_ the follow:
+3. Login to the 3 containers and execute the below command for debug:
 
 ```bash
 tail -f /var/log/squid/access.log
