@@ -68,7 +68,7 @@ tail -f /var/log/squid/access.log
 ![Alt text](image-3.png)
 
 
-**_Enable system level proxy configuration_ (in my local)**
+**_Enable system level proxy configuration_**
 
 ```sh
 # sudo vim /etc/environment
@@ -76,7 +76,7 @@ export http_proxy="http://18.141.12.195:3128/"
 export https_proxy="http://18.141.12.195:3128/" 
 ```
 
-**_Enable global docker level proxy_ (in my local)** 
+**_Enable docker proxy configuration_** 
 ```sh
 # sudo mkdir -p /etc/systemd/system/docker.service.d
 # sudo vi /etc/systemd/system/docker.service.d/proxy.conf
